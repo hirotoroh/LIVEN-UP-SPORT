@@ -10,4 +10,6 @@ class User < ApplicationRecord
     validates :gender
     validates :age
   end
+
+  enum gender: { gender_private: 0, male: 1, female: 2, others: 3 }
 end
