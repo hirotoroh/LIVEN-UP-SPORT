@@ -7,8 +7,8 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :sport
-    validates :gender
-    validates :age
+    validates :gender format: { with: /\A[一-龥]+\z/}
+    validates :age format: { with: /\A[0-9]+\z/ }
   end
 
 end
