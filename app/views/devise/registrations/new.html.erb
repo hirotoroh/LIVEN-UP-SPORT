@@ -34,7 +34,7 @@
 
         <div class="field">
           <%= f.label :gender, "性別" %><br />
-          <%= f.select :gender, options_for_select_from_enum(User, :gender), class: :form__text, id:"user_occupation" %>
+          <%= f.text_area :gender, class: :form__text, id:"user_occupation" %>
         </div>
 
         <div class="field">
