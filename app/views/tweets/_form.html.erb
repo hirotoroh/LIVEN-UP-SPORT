@@ -1,0 +1,25 @@
+<%= form_with model: モデル名, local: true do |f|%>
+  <div class="field">
+    <%= f.label :title, "ツイートのタイトル" %><br />
+    <%= f.text_field :title, id:"prototype_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "テキスト" %><br />
+    <%= f.text_area :description, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :video_url, "動画のURL" %><br />
+    <%= f.text_area :video_url, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "ツイートの画像" %><br />
+    <%= f.file_field :image, id:"prototype_image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
