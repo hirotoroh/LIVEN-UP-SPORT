@@ -2,9 +2,9 @@
   <div class="inner">
     <div class="tweet__wrapper">
       <p class="tweet__hedding">
-        <%= "プロトタイプのタイトル"%>
+        <%= @tweet.title %>
       </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :tweet__user %>
+      <%= link_to "by #{@tweet.user.nickname}", root_path, class: :tweet__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
         <div class="tweet__manage">
           <%= link_to "編集する", root_path, class: :tweet__btn %>
@@ -12,19 +12,19 @@
         </div>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="tweet__image">
-        <%= image_tag "プロトタイプの画像" %>
+        <%= image_tag @tweet.image %>
       </div>
       <div class="tweet__body">
         <div class="tweet__detail">
-          <p class="detail__title">キャッチコピー</p>
+          <p class="detail__title">ツイートの説明</p>
           <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
+            <%= @tweet.description %>
           </p>
         </div>
         <div class="tweet__detail">
-          <p class="detail__title">コンセプト</p>
+          <p class="detail__title">動画</p>
           <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
+            <%= @tweet.video_url %>
           </p>
         </div>
       </div>
