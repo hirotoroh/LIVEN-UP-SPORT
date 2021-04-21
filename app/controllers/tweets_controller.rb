@@ -19,6 +19,8 @@ before_action :set_tweet, only: [:show, :edit]
   end
 
   def show
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user)
   end
 
   def edit
