@@ -37,6 +37,12 @@ before_action :set_tweet, only: [:show, :edit]
     end
   end
 
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
+    redirect_to root_path
+  end
+
   private
 
   def tweet_params
