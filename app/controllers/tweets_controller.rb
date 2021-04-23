@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
-before_action :set_tweet, only: [:show, :edit]
+  before_action :authenticate_user!, only: [:new, :destroy, :edit]
+  before_action :move_to_index, except: [ :index, :show, :create, :new, :edit ]
+  before_action :set_tweet, only: [:show, :edit]
 
   def index
     @tweets = Tweet.all
@@ -49,6 +51,12 @@ before_action :set_tweet, only: [:show, :edit]
 
   def tweet_params
     params.require(:tweet).permit(:title, :description, :video_url, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless  user_signed_in?
+      redirect_to action: :index
+    end
   end
 
   def set_tweet
